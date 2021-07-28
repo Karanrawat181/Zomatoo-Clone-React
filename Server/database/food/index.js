@@ -1,24 +1,24 @@
-import  mongoose from "mongoose";
+import mongoose from "mongoose";
 
 
 const foodSchema = new mongoose.Schema({
-                        
-    name: {type: String, required: true },
-    descript: {type: String , required: true},
-    isVeg: {type: Boolean, required: true},
-    isContainEgg :{type: Boolean, required: true},
-    category : {type: String, required: true},
+
+    name: { type: String, required: true },
+    descript: { type: String, required: true },
+    isVeg: { type: Boolean, required: true },
+    isContainEgg: { type: Boolean, required: true },
+    category: { type: String, required: true },
     photos: {
 
         type: mongoose.Types.ObjectId,
         ref: "Images",
-    
+
     },
-    prize: {type: Number, default: 150, required: true},
-    addOns:[{
-       
-         type: mongoose.Types.ObjectId,
-         ref: "Foods",
+    prize: { type: Number, default: 150, required: true },
+    addOns: [{
+
+        type: mongoose.Types.ObjectId,
+        ref: "Foods",
 
     }],
     restaurant: {
@@ -27,7 +27,11 @@ const foodSchema = new mongoose.Schema({
         required: true,
     },
 
-});
+},
+    {
+        timestamps: true,
+    }
+);
 
 
-export const FoodModel = mongoose.model("Foods",foodSchema);
+export const FoodModel = mongoose.model("Foods", foodSchema);
