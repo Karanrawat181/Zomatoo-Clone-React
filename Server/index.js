@@ -1,22 +1,34 @@
-//import Express
-import express from "express";
+// env variable
+require("dotenv").config();
 
+// Library
+import express from "express";
 import cors from 'cors';
 import helmet from 'helmet';
 
+// Microservice  routes
+import Auth from './API/Auth';
 
 
-const zomatoo= express();
+
+// Database Connection
+import ConnnectDB from './database/connection';
+
+
+const zomato= express();
 
 
 //middleware applicatios
-zomatoo.use(express.json());
-zomatoo.use(express.urlencoded({extended:false})); 
-zomatoo.use(helmet());
-zomatoo.use(cors());
+zomato.use(express.json());
+zomato.use(express.urlencoded({extended:false})); 
+zomato.use(helmet());
+zomato.use(cors());
 
 
-zomatoo.get("/",(req,res)=>{
+//appplication routes
+zomato.use("/auth", Auth);
+
+zomato.get("/",(req,res)=>{
 
     res.json({message: "hello setup success lalallallalall!"});
 
@@ -24,7 +36,15 @@ zomatoo.get("/",(req,res)=>{
 
 
 
-zomatoo.listen(4000 ,()=> console.log("server is running"));
+zomato.listen(4000 ,()=>
+
+ ConnnectDB()
+.then(() => console.log("server is running"))
+.catch(()=>
+ console.log("Server is running and db connection failed")
+ )
+
+);
 
 
 
