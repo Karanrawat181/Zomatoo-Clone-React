@@ -16,10 +16,7 @@ const userSchema = new mongoose.Schema({
   }
 );
 
-
-
 //
-
 
 userSchema.methods.generateJwtToken = function(){
 
@@ -54,9 +51,8 @@ userSchema.statics.findByEmailAndPassword = async({email,password})=>{
 
      return user;
 
+     
 };
-
-
 
 userSchema.pre("save", function (next){
      
