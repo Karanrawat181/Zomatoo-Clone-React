@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+
+
 //Schema
 const userSchema = new mongoose.Schema({
 
@@ -16,7 +18,9 @@ const userSchema = new mongoose.Schema({
   }
 );
 
+
 //
+
 
 userSchema.methods.generateJwtToken = function(){
 
