@@ -12,7 +12,7 @@ Route            /list
 Des          get all list menu based on id
 Params           _id
 Access           Public
-Method           get
+Method           GET
 
 */
 Router.get("/list/:_id", async (req, res) => {
@@ -36,11 +36,11 @@ Route            /images
 Des          get all list menu images based on id
 Params           _id
 Access           Public
-Method           get
+Method           GET
 
 */
 
-router.get("/images/:_id", async (req, res) => {
+Router.get("/images/:_id", async (req, res) => {
 
    try {
 
@@ -53,7 +53,6 @@ router.get("/images/:_id", async (req, res) => {
       return res.status(500).json({ error: error.message });
    }
 })
-
 
 
 export default Router;

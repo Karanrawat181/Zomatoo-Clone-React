@@ -1,5 +1,5 @@
-import express from 'express'
-import passport from 'passport'
+import express from 'express';
+import passport from 'passport';
 
 // model
 import { FoodModel } from "../../database/allModels"
@@ -57,3 +57,4 @@ Router.get("/r/:category", async (req, res) => {
 });
 
 
+export default Router;
