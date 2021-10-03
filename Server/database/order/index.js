@@ -24,13 +24,6 @@ const orderSchema = new mongoose.Schema({
         },
     ],
 
-    orderRating: {
-
-        type: Number,
-        required: true,
-
-    },
-
 
 },
     {
