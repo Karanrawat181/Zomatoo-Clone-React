@@ -49,3 +49,5 @@ Router.delete('delete/:_id', async (req,res)=>{
     }
      
 })
+
+export default Router;

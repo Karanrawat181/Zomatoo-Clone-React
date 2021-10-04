@@ -8,7 +8,8 @@ import { UserModel } from '../../database/user';
 // Router
 const Router = express.Router();
 
-
+//validation 
+import { ValidateSignup } from '../../validation/auth.js'
 
 /*
 Route            /signup
@@ -19,8 +20,13 @@ Method           Post
 */
 
 Router.post("/signup", async (req, res) => {
-
+ 
     try {
+        
+        const error = await ValidateSignup(req.body.credentials);
+        console.log(error);
+        
+     if(error) return res.status(500).json({ error });
               
         await UserModel.findByEmailAndPhone(req.body.credentials);
 
